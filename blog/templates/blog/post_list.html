@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charUserset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+
+{% for post in posts %}
+	{{ posts }}
+	{{ post.text || linebreaks }}
+{% endfor %}
+</body>
+</html>
