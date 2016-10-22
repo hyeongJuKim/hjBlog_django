@@ -1,14 +1,25 @@
-<!DOCTYPE html>
-<html lang="ko">
-<head>
-	<meta charUserset="UTF-8">
-	<title>Document</title>
-</head>
-<body>
+{% extends "blog/base.html" %}
 
-{% for post in posts %}
-	{{ posts }}
-	{{ post.text || linebreaks }}
-{% endfor %}
-</body>
-</html>
+{% block content %}
+    <!-- Blog Post Content Column -->
+    {% for post in posts %}
+    <div class="col-lg-8 col-lg-offset-2">
+        <div class="list-module">    
+            <!-- Conents List -->
+            <center><h1>{{ posts.title }}</h1></center>
+            <center><div class="category">2016년 9월 5일</div></center>
+            
+            <br>
+            <img class="img-responsive" src="http://placehold.it/900x300" alt="">
+            <br>
+
+            <p class="lead">개발동기</p>
+			<p>{{ post.text | linebreaks }}</p>
+
+            <div class="readMoreDIV">
+                <a href="#" class="readMore">계속 읽기</a>
+            </div>
+        </div>  
+    </div>
+   	{% endfor %}
+{% endblock %}
