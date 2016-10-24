@@ -2,7 +2,6 @@
 
 {% block content %}
     <!-- Blog Post Content Column -->
-    {% for post in posts %}
     <div class="col-lg-8 col-lg-offset-2">
         <div class="list-module">    
             <!-- Conents List -->
@@ -15,9 +14,8 @@
 		    <p>{{ post.text | linebreaks }}</p>
 				
             <div class="readMoreDIV">
-                <a href="{% url 'post_detail' pk=post.pk %}" class="readMore">계속 읽기</a>
+                <a href="{% url 'post_list' %}" class="readMore">목록으로 돌아가기</a>
             </div>
         </div>  
     </div>
-   	{% endfor %}
 {% endblock %}

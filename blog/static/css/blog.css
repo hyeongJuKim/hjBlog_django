@@ -1,14 +1,78 @@
+
 body {
 	font-size: 16px;
 	font-family: "Nanum Gothic";
 	padding-top: 70px;
 }
 
+h1 {
+	text-align: center;
+}
+
 h1 a {
 	font-size: 30px;
 }
 
+a {	
+	color: #000;
+	text-decoration: none;
+}
 
+a:link {	
+	text-decoration: none;
+	color: #000;
+}
+
+a:visited {	
+	text-decoration: none;
+	color: #000;
+}
+
+a:hover {	
+	background:#fff4cc;
+    color: #000;
+    text-shadow: none;
+    text-decoration: none;
+}
+
+::selection {
+    background:#fff4cc;
+    color: #000;
+    text-shadow: none;
+}
+::-moz-selection {
+    background:#fff4cc;
+    color: #000;
+    text-shadow: none;
+}
+::-webkit-selection {
+    background:#fff4cc;
+    color: #000;
+    text-shadow: none;
+}
+
+
+.list-module {
+	border-bottom: 1px solid #dddddd;
+	padding-top: 23px;
+	padding-bottom: 27px;
+}
+
+.created_date {
+    color: #C6C6C6;
+}
+
+.readMoreDIV {
+	margin-top: 10px;
+	margin-bottom: 10px;
+	text-align: center;
+}
+
+
+
+.readMore {
+	border-bottom: 1px solid black;
+}
 
 footer {
     margin: 50px 0;
