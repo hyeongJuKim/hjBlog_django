@@ -1,7 +1,8 @@
 from django.utils import timezone
-from django.shortcuts import render
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import get_object_or_404, render, redirect
 from .models import Post
+from .forms import PostForm
 
 # lte : less than equal		<=
 # lt : less than			<
@@ -25,10 +26,47 @@ def post_list(request):
 	return render(request, 'blog/post_list.html', {'posts': posts})
 
 
-# post의 상세 화면
+# post의 상세화면
 def post_detail(request, pk):
     post = get_object_or_404(Post, pk=pk)
     return render(request, 'blog/post_detail.html', {'post': post})
+
+
+# post의 신규화면
+@login_required(login_url='admin:login')  # 로그인 세션이 있을때만 사용 가능
+def post_new(request):
+    if request.method == "POST":
+        form = PostForm(request.POST)
+        if form.is_valid():
+            post = form.save(commit=False)
+            post.author = request.user
+            post.created_date = timezone.now()
+            post.save()
+            return redirect('blog.views.post_detail', post.pk)
+    else:
+        form = PostForm()
+    return render(request, 'blog/post_edit.html', {'form': form})
+
+
+# post 수정
+@login_required(login_url='admin:login') # 로그인 세션이 있을때만 사용 가능
+def post_edit(request, pk):
+    post = get_object_or_404(Post, pk=pk)
+    if request.method == "POST":
+        form = PostForm(request.POST, instance=post)
+        if form.is_valid():
+            post = form.save(commit=False)
+            post.author = request.user
+            post.created_date = timezone.now()
+            post.save()
+            return redirect('blog.views.post_detail', pk=post.pk)
+    else:
+        form = PostForm(instance=post)
+    return render(request, 'blog/post_edit.html', {'form': form})
+
+
+
+
 
 
 # Link 페이지

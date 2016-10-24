@@ -34,7 +34,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#">형주의 블로그</a>
+                <a class="navbar-brand" href="{% url 'main' %}">형주의 블로그</a>
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -46,9 +46,15 @@
                         <a href="{% url 'post_list' %}">Blog</a>
                     </li>
                     <li>
-                        <a href="{%url 'link' %}">Link</a>
+                        <a href="{% url 'link' %}">Link</a>
                     </li>
                 </ul>
+                {% if user.is_authenticated %}
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a class="glyphicon glyphicon-plus" aria-hidden="true" href="{% url 'post_new' %}"></a></li>
+                </ul>
+                {% endif %}
+
             </div>
             <!-- /.navbar-collapse -->
         </div>
