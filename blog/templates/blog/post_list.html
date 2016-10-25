@@ -7,7 +7,7 @@
         <div class="list-module">    
             <!-- Conents List -->
             <h1>{{ post.title }}</h1>
-            <center><div class="created_date">{{ post.created_date }}</div></center>
+            <center><div class="created_date">{{ post.created_date|date:'Y년 m월 d일' }}</div></center>
             <br>	
             <img class="img-responsive" src="http://placehold.it/900x300" alt="">
             <br>

@@ -65,10 +65,6 @@ def post_edit(request, pk):
     return render(request, 'blog/post_edit.html', {'form': form})
 
 
-
-
-
-
 # Link 페이지
 def link(request):
 	return render(request, 'blog/link.html')

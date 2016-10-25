@@ -4,7 +4,7 @@ from . import views
 
 urlpatterns = [
 
-    # Main 페이지 (아무 url없을 때)
+    # Main 페이지 (url없을 때)
     url(r'^$', views.main, name='main'),
 
     # Main 페이지

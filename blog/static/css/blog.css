@@ -1,3 +1,12 @@
+.blog_title {
+	font-family: 'Hanna', fantasy;
+	font-size: 30px;
+	color: #000;
+	/*position: relative;*/
+    display: block;
+    padding: 3px 15px;
+}
+
 
 body {
 	font-size: 16px;
@@ -29,7 +38,7 @@ a:visited {
 }
 
 a:hover {	
-	background:#fff4cc;
+	/*background:#fff4cc;*/
     color: #000;
     text-shadow: none;
     text-decoration: none;
@@ -51,6 +60,18 @@ a:hover {
     text-shadow: none;
 }
 
+.about_intro {
+	text-align: center;
+	margin-top: 100px;
+	margin-bottom: 100px;
+	padding-top: 23px;
+	padding-bottom: 27px;	
+}
+
+
+.navbar-brand {
+	font-size: 19px;
+}
 
 .list-module {
 	border-bottom: 1px solid #dddddd;
