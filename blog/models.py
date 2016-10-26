@@ -8,6 +8,7 @@ class Post(models.Model): # Model class를 상속받은 Post class를 생성한�
 	author = models.ForeignKey(settings.AUTH_USER_MODEL)
 	title = models.CharField(max_length=200)
 	text = models.TextField()
+	image_file = models.ImageField()
 	created_date = models.DateTimeField(default=timezone.now)
 	update_date = models.DateTimeField(blank=True, null = True)
 
