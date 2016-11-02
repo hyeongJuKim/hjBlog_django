@@ -9,7 +9,7 @@
             <!-- <center><h1>{{ posts.title }}</h1></center> -->
             <center><div class="created_date">{{ post.created_date }}</div></center>
             <br>	
-            <img class="img-responsive" src="http://placehold.it/900x300" alt="">
+            <img class="img-responsive" src="http://localhost:8000{{post.image_file.url}}" alt="">
             <br>
 		    <p>{{ post.text | linebreaks }}</p>
 				

@@ -1,5 +1,7 @@
 from django.conf.urls import url
 from . import views
+from django.conf.urls.static import static
+from django.conf import settings
 
 
 urlpatterns = [
@@ -13,7 +15,7 @@ urlpatterns = [
     # About 페이지
     url(r'^about$', views.about, name='about'),
 
-
+    
 	# 블로그 목록
     url(r'^post_list$', views.post_list, name='post_list'),
 
@@ -31,3 +33,6 @@ urlpatterns = [
     url(r'^link$', views.link, name='link'),
 
 ]
+
+# settings.py의 MEDIA_ROOT의 이름을 넣는다.
+urlpatterns += static('media', document_root=settings.MEDIA_ROOT)

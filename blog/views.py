@@ -27,7 +27,7 @@ def post_list(request):
 
 
 # post의 상세화면
-def post_detail(request, pk):
+def post_detail(request, pk):  
     post = get_object_or_404(Post, pk=pk)
     return render(request, 'blog/post_detail.html', {'post': post})
 
@@ -64,6 +64,8 @@ def post_edit(request, pk):
         form = PostForm(instance=post)
     return render(request, 'blog/post_edit.html', {'form': form})
 
+def single_photo(request):
+	return HttpResponse('1번 사진을 보여드릴게요~!')
 
 # Link 페이지
 def link(request):

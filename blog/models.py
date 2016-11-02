@@ -8,7 +8,7 @@ class Post(models.Model): # Model class를 상속받은 Post class를 생성한�
 	author = models.ForeignKey(settings.AUTH_USER_MODEL)
 	title = models.CharField(max_length=200)
 	text = models.TextField()
-	image_file = models.ImageField()
+	image_file = models.ImageField(upload_to='static_files/upload/%Y/%m/%d')
 	created_date = models.DateTimeField(default=timezone.now)
 	update_date = models.DateTimeField(blank=True, null = True)
 
@@ -16,6 +16,11 @@ class Post(models.Model): # Model class를 상속받은 Post class를 생성한�
 		# 수정일자
 		self.update_date = timezone.new()
 		self.save()
+
+	def delete(self, *args, **kwargs):
+		#파일 삭제
+		self.image_file.delete()
+		super(Post,self).delete(*args, **kwargs)
 
 	def __str__(self):
 		return self.title
