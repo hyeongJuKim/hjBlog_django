@@ -35,8 +35,9 @@ def post_detail(request, pk):
 # post의 신규화면
 @login_required(login_url='admin:login')  # 로그인 세션이 있을때만 사용 가능
 def post_new(request):
+    
     if request.method == "POST":
-        form = PostForm(request.POST)
+        form = PostForm(request.POST, request.FILES)
         if form.is_valid():
             post = form.save(commit=False)
             post.author = request.user
@@ -45,7 +46,7 @@ def post_new(request):
             return redirect('blog.views.post_detail', post.pk)
     else:
         form = PostForm()
-    return render(request, 'blog/post_edit.html', {'form': form})
+    return render(request, 'blog/post_edit.html', {'form': form},)
 
 
 # post 수정
@@ -53,7 +54,7 @@ def post_new(request):
 def post_edit(request, pk):
     post = get_object_or_404(Post, pk=pk)
     if request.method == "POST":
-        form = PostForm(request.POST, instance=post)
+        form = PostForm(request.POST, request.FILES, instance=post)
         if form.is_valid():
             post = form.save(commit=False)
             post.author = request.user
